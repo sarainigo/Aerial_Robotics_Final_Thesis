@@ -4,3 +4,5 @@ Development and integration of a quadricopter swarm test bench with the support 
 The quadricopter model that has been selected for the integration into the test bench is the Parrot Airborne Cargo Travis. 
 
 This project has been based on a library already developed for the connection and sending of basic commands. This library has been integrated into ROS to facilitate the development of the control package.
+
+There are several launchers in order to execute the files of interest. 
