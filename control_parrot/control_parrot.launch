@@ -1,0 +1,21 @@
+<launch>
+
+	<node name="gazebo_info_node" pkg="control_parrot" type="gazebo_info">
+	    <param name="param_num" type="int" value="1"/>
+	</node>
+
+	<node name="pose_publisher_node" pkg="control_parrot" type="pose_publisher.py" output="screen" launch-prefix="xterm -e">
+	    <param name="param_num" type="int" value="1"/>
+	    <param name="param_gazebo_info" type="int" value="1"/>
+	</node>
+
+	<node name="control_drone_node" pkg="control_parrot" type="control_drone.py" cwd="node" >
+	    <param name="param_num" type="int" value="1"/>
+	</node>
+
+	<node name="client_node" pkg="control_parrot" type="client.py" output="screen" launch-prefix="xterm -e">
+	    <param name="param_num" type="int" value="1"/>
+	</node>
+
+</launch>
+

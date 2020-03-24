@@ -1,0 +1,7 @@
+<launch>
+	<arg name="arg_num"/>
+
+	<node name="$(eval 'gazebo_info_node_' + str(arg('arg_num')))" pkg="control_parrot" type="gazebo_info">
+	    <param name="param_num" type="string" value="$(arg arg_num)"/>
+	</node>
+</launch>

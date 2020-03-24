@@ -1,0 +1,11 @@
+# Define the goal
+bool mode
+std_msgs/Float32MultiArray w1
+std_msgs/Float32MultiArray w2
+float32 va
+---
+# Define the result
+geometry_msgs/Pose final_pose
+---
+# Define a feedback message
+geometry_msgs/Pose act_pose

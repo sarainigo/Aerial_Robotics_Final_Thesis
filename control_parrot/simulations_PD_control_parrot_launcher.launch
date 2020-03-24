@@ -1,0 +1,26 @@
+<launch>
+	<arg name="arg_vel"/>
+	<arg name="arg_kp"/>
+	<arg name="arg_kd"/>
+
+	<node name="gazebo_info_node" pkg="control_parrot" type="gazebo_info">
+	    <param name="param_num" type="int" value="1"/>
+	</node>
+
+	<node name="pose_publisher_node" pkg="control_parrot" type="pose_publisher.py" output="screen" launch-prefix="xterm -e">
+	    <param name="param_num" type="int" value="1"/>
+	    <param name="param_gazebo_info" type="int" value="1"/>
+	</node>
+
+	<node name="control_drone_node" pkg="control_parrot" type="control_drone.py" cwd="node" >
+	    <param name="param_num" type="int" value="1"/>
+		<param name="param_kp" value="$(arg arg_kp)"/>
+		<param name="param_kd" value="$(arg arg_kd)"/>
+	</node>
+
+	<node name="client_node" pkg="control_parrot" type="client.py" output="screen" launch-prefix="xterm -e">
+	    <param name="param_num" type="int" value="1"/>
+		<param name="param_vel" value="$(arg arg_vel)"/>
+	</node>
+
+</launch>

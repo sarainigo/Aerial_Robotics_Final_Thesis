@@ -1,0 +1,21 @@
+<launch>
+	<arg name="arg_num"/>
+	<arg name="arg_gazebo"/>
+	<arg name="arg_mac"/>
+
+	<node name="$(eval 'pose_publisher_node_' + str(arg('arg_num')))" pkg="control_parrot" type="pose_publisher.py" output="screen" launch-prefix="xterm -e">
+	    <param name="param_num" type="string" value="$(arg arg_num)"/>
+	    <param name="param_gazebo_info" type="string" value="$(arg arg_gazebo)"/>
+	</node>
+
+	<node name="$(eval 'control_drone_node_' + str(arg('arg_num')))" pkg="control_parrot" type="control_drone.py" cwd="node" >
+	    <param name="param_num" type="string" value="$(arg arg_num)"/>
+	    <param name="param_mac" type="string" value="$(arg arg_mac)"/>
+
+	</node>
+
+	<node name="$(eval 'client_node_' + str(arg('arg_num')))" pkg="control_parrot" type="client.py" output="screen" launch-prefix="xterm -e">
+	    <param name="param_num" type="string" value="$(arg arg_num)"/>
+	</node>
+
+</launch>

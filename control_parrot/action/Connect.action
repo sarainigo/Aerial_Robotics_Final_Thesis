@@ -1,0 +1,8 @@
+# Define the goal
+bool goal
+---
+# Define the result
+int32 result
+---
+# Define a feedback message
+int32 state

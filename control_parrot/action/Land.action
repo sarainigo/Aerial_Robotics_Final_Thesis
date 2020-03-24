@@ -1,0 +1,8 @@
+# Define the goal
+bool goal
+---
+# Define the result
+float32 final_z
+---
+# Define a feedback message
+float32 z
